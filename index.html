@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <meta name="title" content="AFFORDRAG-FACTORY - Yang Meng et al.">
-  <meta name="description" content="AffordRAG-Factory is a hierarchical edge VLM and knowledge graph framework that converts ambiguous manufacturing instructions into executable multi-robot Skill-Code commands.">
+  <meta name="description" content="AffordRAG-Factory is a hierarchical VLM and knowledge graph framework for ambiguous multi-robot task execution in manufacturing.">
   <meta name="keywords" content="LLM, Vision-Language Model, Knowledge Graph, Smart Manufacturing, Multi-Robot Systems, Human-Robot Collaboration, Affordance Reasoning, Skill-Code">
   <meta name="author" content="Yang Meng, Xiaoou Yang, John B. Frericks, Jiajia Xie, Tyler De Austria, Aarti Singh, Beshoy Morkos">
   <meta name="robots" content="index, follow">
@@ -14,7 +14,7 @@
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="University of Georgia">
   <meta property="og:title" content="AFFORDRAG-FACTORY">
-  <meta property="og:description" content="A hierarchical edge VLM and knowledge graph framework for ambiguous multi-robot task execution in manufacturing.">
+  <meta property="og:description" content="A hierarchical VLM and knowledge graph framework for ambiguous multi-robot task execution in manufacturing.">
   <meta property="og:url" content="https://dreamocean612.github.io/AFFORDRAG/">
   <meta property="og:image" content="https://dreamocean612.github.io/AFFORDRAG/static/images/social_preview.png">
   <meta property="og:image:width" content="1200">
@@ -23,7 +23,7 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="AFFORDRAG-FACTORY">
-  <meta name="twitter:description" content="A hierarchical edge VLM and knowledge graph framework for ambiguous multi-robot task execution in manufacturing.">
+  <meta name="twitter:description" content="A hierarchical VLM and knowledge graph framework for ambiguous multi-robot task execution in manufacturing.">
   <meta name="twitter:image" content="https://dreamocean612.github.io/AFFORDRAG/static/images/social_preview.png">
 
   <meta name="citation_title" content="AFFORDRAG-FACTORY: A Hierarchical Edge VLM and Knowledge Graph Framework for Ambiguous Multi-Robot Task Execution in Manufacturing">
@@ -56,14 +56,10 @@
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
 
-  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
   <noscript>
-    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
     <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   </noscript>
@@ -72,16 +68,112 @@
 
   <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script defer src="static/js/bulma-carousel.min.js"></script>
-  <script defer src="static/js/bulma-slider.min.js"></script>
   <script defer src="static/js/index.js"></script>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .publication-title {
+      line-height: 1.15;
+    }
+
+    .hero.is-soft {
+      background: #f6f8fb;
+    }
+
+    .custom-card {
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+      overflow: hidden;
+      background: #fff;
+      height: 100%;
+    }
+
+    .custom-card .card-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .section-figure {
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+      background: #fff;
+    }
+
+    .section-figure img {
+      width: 100%;
+      display: block;
+      height: auto;
+    }
+
+    .video-box {
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.10);
+      background: #000;
+    }
+
+    .video-box video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .caption-text {
+      margin-top: 1rem;
+      font-size: 1rem;
+      color: #4a4a4a;
+    }
+
+    .result-table {
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+
+    .bibtex-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 1rem;
+    }
+
+    .copy-bibtex-btn {
+      border: none;
+      background: #363636;
+      color: white;
+      border-radius: 999px;
+      padding: 0.6rem 1rem;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+
+    .copy-bibtex-btn:hover {
+      background: #1f1f1f;
+    }
+
+    pre {
+      border-radius: 16px;
+      padding: 1.25rem;
+      overflow-x: auto;
+    }
+
+    .footer {
+      margin-top: 2rem;
+    }
+  </style>
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ScholarlyArticle",
     "headline": "AFFORDRAG-FACTORY",
-    "description": "A hierarchical edge VLM and knowledge graph framework for ambiguous multi-robot task execution in manufacturing.",
+    "description": "A hierarchical VLM and knowledge graph framework for ambiguous multi-robot task execution in manufacturing.",
     "author": [
       { "@type": "Person", "name": "Yang Meng" },
       { "@type": "Person", "name": "Xiaoou Yang" },
@@ -91,10 +183,10 @@
       { "@type": "Person", "name": "Aarti Singh" },
       { "@type": "Person", "name": "Beshoy Morkos" }
     ],
-    "datePublished": "2026-03-01",
+    "datePublished": "2026-01-01",
     "publisher": {
       "@type": "Organization",
-      "name": "uga"
+      "name": "ASME IDETC/CIE 2026"
     },
     "url": "https://dreamocean612.github.io/AFFORDRAG/",
     "image": "https://dreamocean612.github.io/AFFORDRAG/static/images/social_preview.png",
@@ -159,14 +251,6 @@
                     </a>
                   </span>
 
-                  <span class="link-block">
-                    <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" target="_blank"
-                      class="external-link button is-normal is-rounded is-dark">
-                      <span class="icon"><i class="fab fa-youtube"></i></span>
-                      <span>Video</span>
-                    </a>
-                  </span>
-
                 </div>
               </div>
 
@@ -176,35 +260,38 @@
       </div>
     </section>
 
-    <!-- Teaser video -->
-    <section class="hero teaser">
+    <!-- Intro -->
+    <section class="section hero is-soft">
       <div class="container is-max-desktop">
-        <div class="hero-body">
-          <video poster="static/images/teaser_cover.png" id="teaser" autoplay controls muted loop height="100%" preload="metadata">
-            <source src="static/videos/humanoid.mp4" type="video/mp4">
-          </video>
-          <h2 class="subtitle has-text-centered">
-            AffordRAG-Factory converts ambiguous worker instructions and scene images into executable multi-robot Skill-Code commands through hierarchical reasoning over edge-side VLMs and knowledge graphs.
-          </h2>
+        <div class="columns is-centered">
+          <div class="column is-11">
+            <h2 class="title is-3 has-text-centered">Motivation</h2>
+            <figure class="section-figure">
+              <img src="static/images/intro.png" alt="Motivation overview">
+            </figure>
+            <p class="caption-text has-text-centered">
+              Manufacturing workers often express effect-oriented and ambiguous requests. AffordRAG-Factory combines visual understanding and structured knowledge reasoning to infer executable multi-robot actions from such instructions.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Abstract -->
-    <section class="section hero is-light">
+    <section class="section">
       <div class="container is-max-desktop">
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
             <h2 class="title is-3">Abstract</h2>
             <div class="content has-text-justified">
               <p>
-                High-Mix Low-Volume (HMLV) manufacturing often requires close worker involvement, but limited local computing resources and data compliance concerns make cloud-dependent embodied intelligence impractical for many small and medium-sized enterprises. At the same time, workers frequently issue ambiguous, effect-oriented instructions without explicitly specifying tools, actions, or constraint parameters, making end-to-end multimodal generation unstable in real deployment.
+                High-Mix Low-Volume manufacturing frequently requires workers to interact with multiple robotic platforms using natural and often ambiguous expressions. However, such instructions rarely specify tools, actions, parameters, or the most appropriate robot explicitly, which makes direct end-to-end execution unreliable in real industrial environments.
               </p>
               <p>
-                To address this challenge, we propose <strong>AffordRAG-Factory</strong>, a hierarchical embodied multi-robot task execution framework that combines the semantic understanding ability of edge-side small vision-language models (VLMs) with the structured retrieval, constraint filtering, and reasoning capability of knowledge graphs (KGs). The framework contains four layers: task intention analysis, tool affordance reasoning, action reasoning, and robot allocation, and supports cross-platform deployment through a unified Skill-Code protocol.
+                We propose <strong>AffordRAG-Factory</strong>, a hierarchical embodied multi-robot framework that combines edge-side vision-language models with knowledge-graph-based retrieval and reasoning. The system decomposes decision making into task intention analysis, tool affordance reasoning, action reasoning, and robot allocation, and finally converts the result into executable Skill-Code commands for heterogeneous robots.
               </p>
               <p>
-                Experimental results on a benchmark of 35 ambiguous manufacturing instructions show that the framework achieves both high accuracy and low latency. Real-world case studies on a humanoid robot, a robotic arm, and a quadruped robot further demonstrate strong generalization and deployment feasibility across heterogeneous robot platforms.
+                The uploaded examples below illustrate the overall framework as well as real deployments on a humanoid robot, a robotic arm, and a quadruped robot platform.
               </p>
             </div>
           </div>
@@ -212,100 +299,143 @@
       </div>
     </section>
 
-    <!-- Image carousel -->
-    <section class="hero is-small">
-      <div class="hero-body">
-        <div class="container">
-          <div id="results-carousel" class="carousel results-carousel">
-
-            <div class="item">
-              <img src="static/images/intro.png" alt="Framework overview" loading="lazy"/>
-              <h2 class="subtitle has-text-centered">
-                Four-layer reasoning framework: task intention analysis, tool affordance reasoning, action reasoning, and robot allocation.
-              </h2>
-            </div>
-
-            <div class="item">
-              <img src="static/images/humanoid.png" alt="Humanoid robot grasping case study" loading="lazy"/>
-              <h2 class="subtitle has-text-centered">
-                Humanoid grasping case study: the system infers WD-40 from an ambiguous maintenance request and executes tool grasping on a Unitree G1 EDU robot.
-              </h2>
-            </div>
-
-            <div class="item">
-              <img src="static/images/robotarm.png" alt="Robotic arm defect inspection case study" loading="lazy"/>
-              <h2 class="subtitle has-text-centered">
-                Robotic-arm defect inspection case study: the system generates a structured multi-view scanning plan for a Dobot E6 platform.
-              </h2>
-            </div>
-
-            <div class="item">
-              <img src="static/images/dog.png" alt="Quadruped robot navigation case study" loading="lazy"/>
-              <h2 class="subtitle has-text-centered">
-                Quadruped navigation case study: the framework infers an electric drill request and dispatches a navigation task to a Unitree Go2 robot.
-              </h2>
-            </div>
-
+    <!-- Framework -->
+    <section class="section hero is-soft">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column is-11">
+            <h2 class="title is-3 has-text-centered">System Framework</h2>
+            <figure class="section-figure">
+              <img src="static/images/image%20(3).png" alt="AffordRAG-Factory framework">
+            </figure>
+            <p class="caption-text has-text-centered">
+              The framework contains four layers: task intention analysis, tool affordance reasoning, action reasoning, and robot allocation, supported by tool, action, and robot knowledge graphs.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Project video -->
-    <section class="hero is-small is-light">
-      <div class="hero-body">
-        <div class="container">
-          <h2 class="title is-3">Project Video</h2>
-          <div class="columns is-centered has-text-centered">
-            <div class="column is-four-fifths">
-              <div class="publication-video">
-                <iframe
-                  src="https://www.youtube.com/embed/YOUR_VIDEO_ID"
-                  frameborder="0"
-                  allow="autoplay; encrypted-media"
-                  allowfullscreen>
-                </iframe>
+    <!-- Case studies -->
+    <section class="section">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Real-World Case Studies</h2>
+
+        <div class="columns is-multiline">
+
+          <div class="column is-12">
+            <div class="card custom-card">
+              <div class="card-image">
+                <img src="static/images/humanoid.png" alt="Humanoid case study">
+              </div>
+              <div class="card-content">
+                <h3 class="title is-4">Humanoid Assistance</h3>
+                <p>
+                  The humanoid robot interprets an ambiguous maintenance-related request, identifies the relevant objects in the scene, and executes grasping and handover actions accordingly.
+                </p>
               </div>
             </div>
           </div>
+
+          <div class="column is-12">
+            <div class="card custom-card">
+              <div class="card-image">
+                <img src="static/images/robotarm.png" alt="Robot arm case study">
+              </div>
+              <div class="card-content">
+                <h3 class="title is-4">Robotic Arm Execution</h3>
+                <p>
+                  The robot arm case study demonstrates object-centered manipulation and viewpoint-aware execution in a tabletop manufacturing setup.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="column is-12">
+            <div class="card custom-card">
+              <div class="card-image">
+                <img src="static/images/dog.png" alt="Quadruped robot case study">
+              </div>
+              <div class="card-content">
+                <h3 class="title is-4">Quadruped Navigation</h3>
+                <p>
+                  The quadruped robot receives a high-level request, reasons about the target object and navigation objective, and performs mobile task execution in a real environment.
+                </p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <!-- Benchmark Results -->
+    <!-- Videos -->
+    <section class="section hero is-soft">
+      <div class="container is-max-desktop">
+        <h2 class="title is-3 has-text-centered">Video Demonstrations</h2>
+
+        <div class="columns">
+          <div class="column is-6">
+            <div class="video-box">
+              <video controls muted loop preload="metadata" poster="static/images/humanoid.png">
+                <source src="static/videos/humanoid.mp4" type="video/mp4">
+              </video>
+            </div>
+            <p class="caption-text has-text-centered">
+              <strong>Humanoid demo.</strong> Real-world execution of the humanoid platform under the AffordRAG-Factory reasoning pipeline.
+            </p>
+          </div>
+
+          <div class="column is-6">
+            <div class="video-box">
+              <video controls muted loop preload="metadata" poster="static/images/dog.png">
+                <source src="static/videos/robotdog.mp4" type="video/mp4">
+              </video>
+            </div>
+            <p class="caption-text has-text-centered">
+              <strong>Quadruped demo.</strong> Real-world navigation and target-oriented behavior on the robot dog platform.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benchmark -->
     <section class="section">
       <div class="container is-max-desktop">
         <h2 class="title is-3 has-text-centered">Benchmark Results</h2>
         <div class="content">
           <p class="has-text-centered">
-            Performance on a benchmark of 35 ambiguous manufacturing instructions.
+            Performance on a benchmark of ambiguous manufacturing instructions.
           </p>
-          <table class="table is-fullwidth is-striped is-hoverable">
-            <thead>
-              <tr>
-                <th>Method</th>
-                <th>Accuracy (%)</th>
-                <th>Avg. Latency (ms)</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>SmolVLM-500M</td>
-                <td>91.4</td>
-                <td>182</td>
-              </tr>
-              <tr>
-                <td>Qwen3-VL-2B</td>
-                <td>100.0</td>
-                <td>232</td>
-              </tr>
-              <tr>
-                <td>GPT-4o</td>
-                <td>100.0</td>
-                <td>1331</td>
-              </tr>
-            </tbody>
-          </table>
+          <div class="result-table">
+            <table class="table is-fullwidth is-striped is-hoverable">
+              <thead>
+                <tr>
+                  <th>Method</th>
+                  <th>Accuracy (%)</th>
+                  <th>Avg. Latency (ms)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>SmolVLM-500M</td>
+                  <td>91.4</td>
+                  <td>182</td>
+                </tr>
+                <tr>
+                  <td>Qwen3-VL-2B</td>
+                  <td>100.0</td>
+                  <td>232</td>
+                </tr>
+                <tr>
+                  <td>GPT-4o</td>
+                  <td>100.0</td>
+                  <td>1331</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </section>
@@ -323,9 +453,8 @@
 <pre id="bibtex-code"><code>@inproceedings{meng2026affordragfactory,
   title={AffordRAG-Factory: A Hierarchical Edge VLM and Knowledge Graph Framework for Ambiguous Multi-Robot Task Execution in Manufacturing},
   author={Meng, Yang and Yang, Xiaoou and Frericks, John B. and Xie, Jiajia and De Austria, Tyler and Singh, Aarti and Morkos, Beshoy},
-  booktitle={Proceedings of the ASME 2026 International Design Engineering Technical Conferences and Computers and Information in Engineering Conference (IDETC/CIE 2026)},
-  year={2026},
-  address={Houston, Texas, USA}
+  booktitle={Proceedings of the ASME 2026 International Design Engineering Technical Conferences and Computers and Information in Engineering Conference},
+  year={2026}
 }</code></pre>
       </div>
     </section>
@@ -339,15 +468,8 @@
           <div class="content">
             <p>
               This page was built using the
-              <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>
-              which was adopted from the
-              <a href="https://nerfies.github.io" target="_blank">Nerfies</a> project page.
-              You are free to borrow the source code of this website, we just ask that you link back to this page in the footer.
-              <br>
-              This website is licensed under a
-              <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">
-                Creative Commons Attribution-ShareAlike 4.0 International License
-              </a>.
+              <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>,
+              adapted for the AffordRAG-Factory project page.
             </p>
           </div>
         </div>
